@@ -9,18 +9,7 @@ server:
 spring:
   application:
     name: gateway-service
-  # ----------------------------------------------------------------------------
-  # Configuration des routes Spring Cloud Gateway
-  # ----------------------------------------------------------------------------
-  cloud:
-    gateway:
-      routes:
-        - id: account
-          uri: lb://account-service
-          predicates:
-            - Path=/accounts/**
-          filters:
-            - StripPrefix=1
+  
 
 
     globalcors:
