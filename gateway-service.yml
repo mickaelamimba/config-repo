@@ -1,27 +1,26 @@
+# ----------------------------------------------------------------------------
+# Serveur web : port dédié au gateway
+# ----------------------------------------------------------------------------
+server:
+  port: ${GATEWAY_SERVER_PORT:8089}
+
 # gateway-service.yml (config-repo)
 
 spring:
   application:
     name: gateway-service
-
-  # ----------------------------------------------------------------------------
-  # Serveur web : port dédié au gateway
-  # ----------------------------------------------------------------------------
-server:
-  port: ${GATEWAY_SERVER_PORT:8089}
-
   # ----------------------------------------------------------------------------
   # Configuration des routes Spring Cloud Gateway
   # ----------------------------------------------------------------------------
-cloud:
-  gateway:
-    routes:
-      - id: account
-        uri: lb://account-service
-        predicates:
-          - Path=/accounts/**
-        filters:
-          - StripPrefix=1
+  cloud:
+    gateway:
+      routes:
+        - id: account
+          uri: lb://account-service
+          predicates:
+            - Path=/accounts/**
+          filters:
+            - StripPrefix=1
 
 
     globalcors:
@@ -50,9 +49,7 @@ management:
           - metrics
           - gateway
   access:
-    default: none                                
+    default: none
   endpoint:
     gateway:
-      access: unrestricted  
-
-
+      access: unrestricted
