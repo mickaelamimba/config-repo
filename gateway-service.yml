@@ -39,3 +39,18 @@ cloud:
           allowCredentials: true
 
 
+management:
+  endpoint:
+    gateway:
+      enabled: true
+  endpoints:
+    web:
+      base-path: /actuator
+      exposure:
+        include:
+          - health
+          - info
+          - metrics
+          - gateway
+
+
