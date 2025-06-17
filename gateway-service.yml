@@ -22,7 +22,7 @@ spring:
               predicates:
                 - Path=/accounts/**
               filters:
-                - StripPrefix=1
+                -  RewritePath=/accounts/(?<remaining>.*), /accounts/${remaining}
   
 
 
