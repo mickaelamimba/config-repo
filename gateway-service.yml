@@ -49,5 +49,10 @@ management:
           - info
           - metrics
           - gateway
+  access:
+    default: none                                
+  endpoint:
+    gateway:
+      access: unrestricted  
 
 
